@@ -1,0 +1,100 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  background: #ffaa00;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  color: #664400;
+}
+
+/* Draggable list - draggable.tsx */
+
+.draggable-list {
+  padding: 0;
+}
+
+.draggable-list li {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 15px 18px;
+  position: relative;
+  background: #ffffff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  cursor: grab;
+}
+
+.draggable-list li.over {
+  z-index: 2;
+  background-color: #dddddd;
+}
+
+/* Reducer - index.tsx */
+.modal {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 1rem 2rem;
+  padding: 0.2rem 1.2rem;
+  background: #fff;
+  border-left: 6px solid #ff002b;
+  border-radius: 5px;
+}
+
+.people {
+  padding: 1rem;
+  background-color: #f8f8f8;
+}
+
+.people li {
+  padding: 1rem 2rem;
+  margin-bottom: 0.2rem;
+  border-radius: 5px;
+  background-color: #f3f3f3;
+  display: flex;
+  justify-content: space-between;
+}
+
+.people h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.people button {
+  cursor: pointer;
+  border: 0;
+  color: #f3f3f3;
+  background-color: #be8614;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+form {
+  padding: 1rem;
+  background-color: #f8f8f8;
+}
+
+form input {
+  border: none;
+  padding: 0.5rem;
+}
+
+form button {
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  background: #be8614;
+}
