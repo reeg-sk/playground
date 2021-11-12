@@ -34,7 +34,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
   unit_tests:
-    needs: cache
+    needs: build
     name: Run unit tests 🧪
     runs-on: ubuntu-latest
     steps:
@@ -45,7 +45,7 @@ jobs:
         working-directory: ./reactive
 
   e2e_tests:
-    needs: cache
+    needs: build
     name: Run e2e tests 🎭
     runs-on: ubuntu-latest
     steps:
