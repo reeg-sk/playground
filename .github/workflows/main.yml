@@ -26,7 +26,7 @@ jobs:
     name: Run unit tests 🧪
     runs-on: ubuntu-latest
     steps:
-      - run: yarn test
+      - run: yarn test -- --coverage
         working-directory: ./reactive
 
   e2e_tests:
@@ -34,7 +34,7 @@ jobs:
     name: Run e2e tests 🎭
     runs-on: ubuntu-latest
     steps:
-      - run: yarn test
+      - run: yarn test -- --coverage
         working-directory: ./reactive
 
   cache:
