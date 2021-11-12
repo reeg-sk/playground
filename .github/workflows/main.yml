@@ -23,7 +23,7 @@ jobs:
 
   cache:
     name: Cache dependencies 🐌
-    needs: [unit_tests, e2e_tests]
+    needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -40,7 +40,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
   unit_tests:
-    needs: build
+    needs: cache
     name: Run unit tests 🧪
     runs-on: ubuntu-latest
     steps:
@@ -51,7 +51,7 @@ jobs:
         working-directory: ./reactive
 
   e2e_tests:
-    needs: build
+    needs: cache
     name: Run e2e tests 🎭
     runs-on: ubuntu-latest
     steps:
