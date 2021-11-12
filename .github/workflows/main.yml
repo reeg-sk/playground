@@ -21,10 +21,6 @@ jobs:
         run: yarn build
         working-directory: ./reactive
 
-      - name: Start app
-        run: yarn start
-        working-directory: ./reactive
-
   unit_tests:
     needs: build
     name: Run unit tests 🧪
