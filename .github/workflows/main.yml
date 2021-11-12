@@ -26,6 +26,9 @@ jobs:
     name: Run unit tests 🧪
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v2
+
       - run: yarn test -- --coverage
         working-directory: ./reactive
 
@@ -34,6 +37,9 @@ jobs:
     name: Run e2e tests 🎭
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v2
+
       - run: yarn test -- --coverage
         working-directory: ./reactive
 
