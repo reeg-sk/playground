@@ -41,6 +41,11 @@ jobs:
       - name: Checkout repository code
         uses: actions/checkout@v2
 
+      - name: Install dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn install
+        working-directory: ./reactive
+
       - run: yarn test -- --coverage
         working-directory: ./reactive
 
@@ -51,6 +56,11 @@ jobs:
     steps:
       - name: Checkout repository code
         uses: actions/checkout@v2
+
+      - name: Install dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn install
+        working-directory: ./reactive
 
       - run: yarn test -- --coverage
         working-directory: ./reactive
