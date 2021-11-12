@@ -26,7 +26,7 @@ jobs:
         working-directory: ./app
 
   unit_tests:
-    needs: setup
+    needs: build
     name: Run unit tests 🧪
     runs-on: ubuntu-latest
     steps:
@@ -34,7 +34,7 @@ jobs:
         working-directory: ./app
 
   e2e_tests:
-    needs: setup
+    needs: build
     name: Run e2e tests 🎭
     runs-on: ubuntu-latest
     steps:
