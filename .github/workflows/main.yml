@@ -1,0 +1,59 @@
+name: Deploy dev 💻
+
+on:
+  - push
+  - workflow_dispatch
+
+jobs:
+  build:
+    name: Build app 👷‍♀️
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true
+        run: yarn install
+        working-directory: ./app
+
+      - name: Build app
+        run: yarn build
+        working-directory: ./app
+
+      - name: Start app
+        run: yarn start
+        working-directory: ./app
+
+  unit_tests:
+    needs: setup
+    name: Run unit tests 🧪
+    runs-on: ubuntu-latest
+    steps:
+      - run: yarn test
+        working-directory: ./app
+
+  e2e_tests:
+    needs: setup
+    name: Run e2e tests 🎭
+    runs-on: ubuntu-latest
+    steps:
+      - run: yarn test
+        working-directory: ./app
+
+  cache:
+    needs: [unit_tests, e2e_tests]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
