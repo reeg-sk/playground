@@ -15,15 +15,15 @@ jobs:
       - name: Install dependencies
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install
-        working-directory: ./app
+        working-directory: ./reactive
 
       - name: Build app
         run: yarn build
-        working-directory: ./app
+        working-directory: ./reactive
 
       - name: Start app
         run: yarn start
-        working-directory: ./app
+        working-directory: ./reactive
 
   unit_tests:
     needs: build
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: yarn test
-        working-directory: ./app
+        working-directory: ./reactive
 
   e2e_tests:
     needs: build
@@ -39,9 +39,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: yarn test
-        working-directory: ./app
+        working-directory: ./reactive
 
   cache:
+    name: Cache dependencies 🐌
     needs: [unit_tests, e2e_tests]
     runs-on: ubuntu-latest
     timeout-minutes: 10
