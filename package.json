@@ -2,5 +2,6 @@
   "name": "playground",
   "version": "1.0.0",
   "author": "reeg-sk",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {}
 }

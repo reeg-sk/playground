@@ -1,0 +1,11 @@
+{
+  "name": "knex",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@vscode/sqlite3": "^5.0.7",
+    "better-sqlite3": "^7.5.0",
+    "knex": "^1.0.1"
+  }
+}

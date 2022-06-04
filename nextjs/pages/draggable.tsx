@@ -46,9 +46,18 @@ const Items = () => {
               key={idx}
               draggable={true}
               onDragOver={(e) => e.preventDefault()}
-              onDrop={() => switchElement(idx)}
+              onDragEnter={(e) => {
+                e.currentTarget.classList.add('active');
+              }}
+              onDragLeave={(e) => {
+                e.currentTarget.classList.remove('active');
+              }}
+              onDrop={(e) => {
+                e.currentTarget.classList.remove('active');
+                switchElement(idx)
+              }}
               onDragStart={() => setDragged(idx)}
-              onDragEnd={() => setDragged(null)}
+              onDragEnd={(e) => setDragged(null)}
             >
               {item.name}
             </li>

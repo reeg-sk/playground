@@ -34,11 +34,16 @@ a {
   align-items: center;
   flex-shrink: 0;
   cursor: grab;
+  border: 2px solid transparent;
 }
 
 .draggable-list li.over {
   z-index: 2;
   background-color: #dddddd;
+}
+
+li.active {
+  border: 2px dashed #151515;
 }
 
 /* Reducer - index.tsx */
